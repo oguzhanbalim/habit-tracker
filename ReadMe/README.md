@@ -1,4 +1,3 @@
-Habit Tracker
 Welcome to the Habit Tracker project! This application is a command-line tool that helps you manage and track your habits, monitor your progress, and stay motivated. Whether you're trying to build new habits or maintain existing ones, this tool is designed to support your journey.
 
 Project Details
