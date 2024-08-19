@@ -1,4 +1,3 @@
-# habit_tracker.py
 import json
 import datetime
 from collections import defaultdict
@@ -32,11 +31,11 @@ class HabitTracker:
         return self.habits_by_periodicity[periodicity]
 
     def longest_streak_all(self):
-        return max((habit.longest_streak() for habit in self.habits.values()), default=0)
+        return max((habit.calculate_longest_streak() for habit in self.habits.values()), default=0)
 
     def longest_streak_for_habit(self, name):
         if name in self.habits:
-            return self.habits[name].longest_streak()
+            return self.habits[name].calculate_longest_streak()
         return 0
 
     def habits_struggled_last_month(self):
@@ -60,5 +59,5 @@ class HabitTracker:
                 for habit in self.habits.values():
                     self.habits_by_periodicity[habit.periodicity].append(habit)
         except FileNotFoundError:
-            pass
+            print(f"File '{filename}' not found. Starting with an empty habit tracker.")
 
