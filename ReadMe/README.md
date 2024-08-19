@@ -1,10 +1,14 @@
 Welcome to the Habit Tracker project! This application is a command-line tool that helps you manage and track your habits, monitor your progress, and stay motivated. Whether you're trying to build new habits or maintain existing ones, this tool is designed to support your journey.
 
 Project Details
+
 GitHub Profile: oguzhanbalim
 Date: 19 August 2024
+
 Course: Object Oriented and Functional Programming with Python
+
 Institution: IU International University of Applied Science
+
 Developer: Oğuzhan Balım
 
 Features
@@ -21,7 +25,7 @@ Clone the Repository:
 
 If you are familiar with Git, you can clone this repository directly using the following command in your terminal:
 
-sh
+
 git clone https://github.com/oguzhanbalim/habit-tracker.git
 
 If you're not familiar with Git, you can also:
@@ -36,7 +40,7 @@ Open a terminal (Command Prompt or PowerShell on Windows, Terminal on macOS/Linu
 Use the cd command to navigate to the folder where you extracted the files.
 Example:
 
-sh
+
 cd path_to_your_project_folder/habit-tracker
 
 How to Run the Habit Tracker
@@ -49,7 +53,7 @@ Run the Application:
 
 In the terminal, type the following command and press Enter:
 
-sh
+
 python cli.py
 
 This will start the Habit Tracker application. You will see a menu with options to add, delete, and check off habits, among other features.
@@ -69,7 +73,7 @@ Run All Tests:
 
 In the terminal, run the following command:
 
-sh
+
 python -m unittest discover
 
 This will execute all the tests included in the project to verify that everything is working as expected.
