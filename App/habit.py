@@ -1,4 +1,3 @@
-# habit.py
 import datetime
 
 class Habit:
@@ -16,9 +15,14 @@ class Habit:
             delta = (today - self.last_checkoff_date).days
             if delta > self.periodicity:
                 self.streak = 0
+        else:
+            delta = self.periodicity
+        
+        if delta <= self.periodicity:
+            self.streak += 1
+        
         self.checkoffs.append(datetime.datetime.now())
         self.last_checkoff_date = today
-        self.streak += 1
 
     def current_streak(self):
         today = datetime.date.today()
@@ -28,7 +32,7 @@ class Habit:
                 return self.streak
         return 0
 
-    def longest_streak(self):
+    def calculate_longest_streak(self):  # Renamed method to avoid conflict
         if not self.checkoffs:
             return 0
 
@@ -50,14 +54,15 @@ class Habit:
             "name": self.name,
             "periodicity": self.periodicity,
             "created_at": self.created_at.isoformat(),
-            "checkoffs": [dt.isoformat() for dt in self.checkoffs]
+            "checkoffs": [dt.isoformat() for dt in self.checkoffs],
+            "streak": self.streak,
+            "last_checkoff_date": self.last_checkoff_date.isoformat() if self.last_checkoff_date else None
         }
 
     @classmethod
     def from_dict(cls, data):
         habit = cls(data["name"], data["periodicity"], datetime.datetime.fromisoformat(data["created_at"]))
         habit.checkoffs = [datetime.datetime.fromisoformat(dt) for dt in data["checkoffs"]]
-        if habit.checkoffs:
-            habit.last_checkoff_date = habit.checkoffs[-1].date()
+        habit.streak = data.get("streak", 0)
+        habit.last_checkoff_date = datetime.date.fromisoformat(data["last_checkoff_date"]) if data["last_checkoff_date"] else None
         return habit
-
